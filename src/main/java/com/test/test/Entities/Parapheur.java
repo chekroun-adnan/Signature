@@ -16,17 +16,23 @@ public class Parapheur {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long para_id;
     private LocalDateTime dateCreation;
+    private List<Document> document;
     private List<Parapheur_Document> documents;
     private List<Parapheur_Destination> destinations;
+    private Type_Parapheur typeParapheur;
+    private Etat_Parapheur etatParapheur;
 
     public Parapheur() {
     }
 
-    public Parapheur(Long para_id, LocalDateTime dateCreation, List<Parapheur_Document> documents, List<Parapheur_Destination> destinations) {
+    public Parapheur(Long para_id, LocalDateTime dateCreation, List<Document> document, List<Parapheur_Document> documents, List<Parapheur_Destination> destinations, Type_Parapheur typeParapheur, Etat_Parapheur etatParapheur) {
         this.para_id = para_id;
         this.dateCreation = dateCreation;
+        this.document = document;
         this.documents = documents;
         this.destinations = destinations;
+        this.typeParapheur = typeParapheur;
+        this.etatParapheur = etatParapheur;
     }
 
     public Long getPara_id() {
@@ -59,5 +65,29 @@ public class Parapheur {
 
     public void setDestinations(List<Parapheur_Destination> destinations) {
         this.destinations = destinations;
+    }
+
+    public List<Document> getDocument() {
+        return document;
+    }
+
+    public void setDocument(List<Document> document) {
+        this.document = document;
+    }
+
+    public Type_Parapheur getTypeParapheur() {
+        return typeParapheur;
+    }
+
+    public void setTypeParapheur(Type_Parapheur typeParapheur) {
+        this.typeParapheur = typeParapheur;
+    }
+
+    public Etat_Parapheur getEtatParapheur() {
+        return etatParapheur;
+    }
+
+    public void setEtatParapheur(Etat_Parapheur etatParapheur) {
+        this.etatParapheur = etatParapheur;
     }
 }
