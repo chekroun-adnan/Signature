@@ -16,7 +16,6 @@ public class Parapheur {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long para_id;
     private LocalDateTime dateCreation;
-    private List<Document> document;
     private List<Parapheur_Document> documents;
     private List<Parapheur_Destination> destinations;
     private Type_Parapheur typeParapheur;
@@ -28,7 +27,6 @@ public class Parapheur {
     public Parapheur(Long para_id, LocalDateTime dateCreation, List<Document> document, List<Parapheur_Document> documents, List<Parapheur_Destination> destinations, Type_Parapheur typeParapheur, Etat_Parapheur etatParapheur) {
         this.para_id = para_id;
         this.dateCreation = dateCreation;
-        this.document = document;
         this.documents = documents;
         this.destinations = destinations;
         this.typeParapheur = typeParapheur;
@@ -65,14 +63,6 @@ public class Parapheur {
 
     public void setDestinations(List<Parapheur_Destination> destinations) {
         this.destinations = destinations;
-    }
-
-    public List<Document> getDocument() {
-        return document;
-    }
-
-    public void setDocument(List<Document> document) {
-        this.document = document;
     }
 
     public Type_Parapheur getTypeParapheur() {

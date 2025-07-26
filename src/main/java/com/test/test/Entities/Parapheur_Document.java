@@ -7,6 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 public class Parapheur_Document {
@@ -16,6 +17,7 @@ public class Parapheur_Document {
     private Long doc_id;
     private LocalDateTime dateEtat;
     private Parafeur_Document_Etat parafeurDocumentEtat;
+    private List<Document> document;
 
     public Parapheur_Document() {
     }
