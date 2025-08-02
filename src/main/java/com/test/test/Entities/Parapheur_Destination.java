@@ -14,6 +14,10 @@ public class Parapheur_Destination {
     @JoinColumn(name = "parapheur_id")
     private Parapheur parapheur;
 
+    public Parapheur_Destination() {
+
+    }
+
 
     private boolean isSent(){
         return sent;
@@ -34,5 +38,13 @@ public class Parapheur_Destination {
 
     public void setDes_id(Long des_id) {
         this.des_id = des_id;
+    }
+
+    public Parapheur getParapheur() {
+        return parapheur;
+    }
+
+    public void setParapheur(Parapheur parapheur) {
+        this.parapheur = parapheur;
     }
 }
