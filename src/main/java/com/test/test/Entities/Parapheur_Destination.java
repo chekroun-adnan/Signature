@@ -1,10 +1,7 @@
 package com.test.test.Entities;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Parapheur_Destination {
@@ -13,6 +10,9 @@ public class Parapheur_Destination {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long des_id;
     private boolean sent;
+    @ManyToOne
+    @JoinColumn(name = "parapheur_id")
+    private Parapheur parapheur;
 
 
     private boolean isSent(){

@@ -1,10 +1,7 @@
 package com.test.test.Entities;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.List;
 
@@ -16,7 +13,10 @@ public class Parafeur_Document_Etat {
     private Long paraDoc_id;
     private String libelle;
     private String description;
+    @ManyToOne
+    @JoinColumn(name = "document_id")
     private Document document;
+    @OneToMany(mappedBy = "parafeurDocumentEtat", cascade = CascadeType.ALL)
     private List<Parapheur_Document> parapheurDocuments;
 
     public Parafeur_Document_Etat() {

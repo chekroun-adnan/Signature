@@ -1,10 +1,7 @@
 package com.test.test.Entities;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -16,15 +13,21 @@ public class Parapheur {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long para_id;
     private LocalDateTime dateCreation;
+    @OneToMany(mappedBy = "parapheur", cascade = CascadeType.ALL)
     private List<Parapheur_Document> documents;
+    @OneToMany(mappedBy = "parapheur", cascade = CascadeType.ALL)
     private List<Parapheur_Destination> destinations;
+    @ManyToOne
+    @JoinColumn(name = "type_id")
     private Type_Parapheur typeParapheur;
+    @ManyToOne
+    @JoinColumn(name = "etat_id")
     private Etat_Parapheur etatParapheur;
 
     public Parapheur() {
     }
 
-    public Parapheur(Long para_id, LocalDateTime dateCreation, List<Document> document, List<Parapheur_Document> documents, List<Parapheur_Destination> destinations, Type_Parapheur typeParapheur, Etat_Parapheur etatParapheur) {
+    public Parapheur(Long para_id, LocalDateTime dateCreation, List<Parapheur_Document> documents, List<Parapheur_Destination> destinations, Type_Parapheur typeParapheur, Etat_Parapheur etatParapheur) {
         this.para_id = para_id;
         this.dateCreation = dateCreation;
         this.documents = documents;

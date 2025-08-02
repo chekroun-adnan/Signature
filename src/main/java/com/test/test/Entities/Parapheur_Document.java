@@ -1,10 +1,7 @@
 package com.test.test.Entities;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -16,8 +13,12 @@ public class Parapheur_Document {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long doc_id;
     private LocalDateTime dateEtat;
+    @ManyToOne
+    @JoinColumn(name = "etat_id")
     private Parafeur_Document_Etat parafeurDocumentEtat;
-    private List<Document> document;
+    @ManyToOne
+    @JoinColumn(name = "parapheur_id")
+    private Parapheur parapheur;
 
     public Parapheur_Document() {
     }
