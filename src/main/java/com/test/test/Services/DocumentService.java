@@ -15,7 +15,6 @@ import java.nio.file.Path;
 @Service
 public class DocumentService {
 
-    @Autowired
     private final DocumentRepository documentRepository;
 
     @Value("${filePath}")
